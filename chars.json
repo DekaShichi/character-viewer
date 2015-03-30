@@ -9,7 +9,10 @@
     "name": "Rearite Aratameru",
     "age": 224,
     "icon": "img/ReariteFI.png",
-    "color": "#B197A1"
+    "color": "#B197A1",
+    "spells": {
+        "desc": "Testing spell desc."
+    }
 },
 {
     "name": "Yuu Influen",
@@ -17,7 +20,6 @@
     "icon": "img/YuuFI.jpg",
     "color": "#4F7B96",
     "spells": {
-        "desc": "This is a description",
         "list": [
         {
             "name": "Test",

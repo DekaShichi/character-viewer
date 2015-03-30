@@ -113,10 +113,13 @@ function render_grid() {
 function render(char) {
     // Empty the children first.
     $("#info").empty();
+    
     addProperty("Name",char.name);
     addProperty("Age",char.age);
-    if(char.hasOwnProperty('spells')) {
-        var prop = addProperty("Spells",char.spells.desc);
+    if('spells' in char) {
+        var desc = "";
+        if('desc' in char.spells) { desc = char.spells.desc; }
+        var prop = addProperty("Spells", desc);
         prop.appendChild(addUnorderedList(char.spells.list));
     }
 }
