@@ -1,0 +1,21 @@
+/* Copyright (c) 2015 DekaShichi */
+
+body {
+    background-color: #141311;
+    color: #fff;
+    text-align: center;
+}
+#grid div {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+#grid img {
+    width: 80px;
+    height: 80px;
+}
+#info {
+    background-color: #a2482e;
+    height: 350px;
+    text-align: left;
+}
