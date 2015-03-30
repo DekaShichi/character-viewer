@@ -63,8 +63,7 @@ function render_grid() {
          * attaches the click event, with the attached event metadata.
          * In this case, the character index is attached.
          */
-        // Used to attach to both the icon and the info box.
-        toggle = function(e) {
+        $("#grid div").eq(i).on("click", { index: i }, function(e) {
             // Reset all of the icon borders no matter what.
             $("#grid img").css("border","");
             // If this character is already selected.
@@ -106,14 +105,6 @@ function render_grid() {
                 // Animate fade in, then said loading to false once complete.
                 $("#info").fadeIn(function() { loading = false; });
             }
-        };
-        $("#grid div").eq(i).on("click", { index: i }, function(e) {
-            // Unbind any previous click events.
-            $("#info").off("click");
-            if(currentIndex != e.data.index) {
-                $("#info").click(function() { toggle(e); });
-            }
-            toggle(e);
         });
     }
 }
