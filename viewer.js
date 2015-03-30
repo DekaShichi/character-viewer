@@ -88,10 +88,10 @@ function render_grid() {
                 // Assigned for convenience & readability.
                 var style = document.getElementById("charImg" + e.data.index)
                         .style;
-                // If the character data has a border color.
-                if(chars[e.data.index].hasOwnProperty('border')) {
-                    $("#info").css("background-color",chars[e.data.index].border);
-                    style.border = "thick solid " + chars[e.data.index].border;
+                // If the character data has a color.
+                if(chars[e.data.index].hasOwnProperty('color')) {
+                    $("#info").css("background-color",chars[e.data.index].color);
+                    style.border = "thick solid " + chars[e.data.index].color;
                 }
                 // If not, use a default color.
                 else {
