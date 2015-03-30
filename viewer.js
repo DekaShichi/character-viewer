@@ -113,19 +113,53 @@ function render_grid() {
 function render(char) {
     // Empty the children first.
     $("#info").empty();
-    
+    addProperty("Name",char.name);
+    addProperty("Age",char.age);
+    if(char.hasOwnProperty('spells')) {
+        var prop = addProperty("Spells",char.spells.desc);
+        prop.appendChild(addUnorderedList(char.spells.list));
+    }
+}
+
+function addProperty(name, string) {
     // Creates containers for each field.
     var div = document.createElement("DIV");
     // Create the text node to the field's info.
-    var divText = document.createTextNode("Name: " + char.name);
+    var divText = document.createTextNode(name + ": " + string);
     // Append the text node to the container.
     div.appendChild(divText);
     // Append the container to the info box.
     document.getElementById("info").appendChild(div);
     
-    // Rinse and repeat for each field (not sure if there's a more elegant way)
-    div = document.createElement("DIV");
-    var divText = document.createTextNode("Age: " + char.age);
-    div.appendChild(divText);
-    document.getElementById("info").appendChild(div);
+    return div;
+}
+
+function addUnorderedList(list) {
+    // Creates containers for each field.
+    var ul = document.createElement("UL");
+    createList(ul, list);
+    
+    return ul;
+}
+
+function addOrderedList(list) {
+    // Creates containers for each field.
+    var ol = document.createElement("OL");
+    createList(ol, list);
+    
+    return ol;
+}
+
+// Helper methods as code re-use for ordered and unordered lists.
+function createList(listElem, list) {
+    if(list) {
+        for(var i = 0; i < list.length; i++) {
+            var li = document.createElement("LI");
+            // Create the text node to the field's info.
+            var liText = document.createTextNode(list[i].name + ": " + list[i].value);
+            // Append the text node to the container.
+            li.appendChild(liText);
+            listElem.appendChild(li);
+        }
+    }
 }

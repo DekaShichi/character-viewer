@@ -15,6 +15,15 @@
     "name": "Yuu Influen",
     "age": 18,
     "icon": "img/YuuFI.jpg",
-    "color": "#4F7B96"
+    "color": "#4F7B96",
+    "spells": {
+        "desc": "This is a description",
+        "list": [
+        {
+            "name": "Test",
+            "value": "Test description"
+        }
+        ]
+    }
 }
 ]
