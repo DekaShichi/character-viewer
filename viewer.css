@@ -3,6 +3,8 @@
 body {
     background-color: #141311;
     color: #fff;
+}
+#grid {
     text-align: center;
 }
 #grid div {
@@ -16,6 +18,12 @@ body {
 }
 #info {
     background-color: #a2482e;
-    height: 350px;
-    text-align: left;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 1em;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
