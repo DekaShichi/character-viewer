@@ -116,14 +116,21 @@ function render(char) {
     
     addProperty("Name",char.name);
     addProperty("Age",char.age);
+    // If 'spells' exists add property.
     if('spells' in char) {
         var desc = "";
-        if('desc' in char.spells) { desc = char.spells.desc; }
+        if(char.spells.desc) desc = char.spells.desc;
         var prop = addProperty("Spells", desc);
         prop.appendChild(addUnorderedList(char.spells.list));
     }
 }
 
+/* Use to add a field to the info box (e.g. Name: Robert)
+ * Pass in the name/label and the text (the text is optional).
+ * Example:
+ * Spells: = addProperty("Spells",""); vs.
+ * Spells: Some text. = addProperty("Spells","Some text.");
+ */ 
 function addProperty(name, string) {
     // Creates containers for each field.
     var div = document.createElement("DIV");
@@ -137,6 +144,12 @@ function addProperty(name, string) {
     return div;
 }
 
+/* Use to create an unordered list.
+ * Pass in a list with each item having a 'name' and 'value'.
+ * Any combination of the two are optional (no name, value; visa versa).
+ * Example:
+ * someProp.appendChild(addUnorderedList(list_of_items));
+ */ 
 function addUnorderedList(list) {
     // Creates containers for each field.
     var ul = document.createElement("UL");
@@ -145,6 +158,12 @@ function addUnorderedList(list) {
     return ul;
 }
 
+/* Use to create an ordered list.
+ * Pass in a list with each item having a 'name' and 'value'.
+ * Any combination of the two are optional (no name, value; visa versa).
+ * Example:
+ * someProp.appendChild(addOrderedList(list_of_items));
+ */ 
 function addOrderedList(list) {
     // Creates containers for each field.
     var ol = document.createElement("OL");
@@ -159,7 +178,10 @@ function createList(listElem, list) {
         for(var i = 0; i < list.length; i++) {
             var li = document.createElement("LI");
             // Create the text node to the field's info.
-            var liText = document.createTextNode(list[i].name + ": " + list[i].value);
+            var name, text = "";
+            if('name' in list[i]) name = list[i].name;
+            if('value' in list[i]) text = list[i].value;
+            var liText = document.createTextNode(name + ": " + text);
             // Append the text node to the container.
             li.appendChild(liText);
             listElem.appendChild(li);
