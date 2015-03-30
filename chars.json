@@ -2,11 +2,19 @@
 {
     "name": "Gyle Stimme",
     "age": 22,
-    "icon": "img/GyleFI.jpg"
+    "icon": "img/GyleFI.jpg",
+    "border": "#6B67B4"
 },
 {
     "name": "Rearite Aratameru",
-    "age": 293,
-    "icon": "img/ReariteFI.png"
+    "age": 224,
+    "icon": "img/ReariteFI.png",
+    "border": "#B197A1"
+},
+{
+    "name": "Yuu Influen",
+    "age": 18,
+    "icon": "img/YuuFI.jpg",
+    "border": "#4F7B96"
 }
 ]
