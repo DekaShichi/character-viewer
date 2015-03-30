@@ -4,6 +4,14 @@ body {
     background-color: #141311;
     color: #fff;
 }
+#header {
+    text-align: center;
+    margin: 0 auto;
+}
+#footer {
+    text-align: center;
+    margin: 0 auto;
+}
 #grid {
     text-align: center;
 }
