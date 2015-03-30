@@ -102,7 +102,7 @@ function render_grid() {
                 // Necessary as otherwise fast toggles will wipe out currently
                 // rendering info.
                 loading = true;
-                // Animate fade in, then said loading to false once complete.
+                // Animate fade in, then set loading to false once complete.
                 $("#info").fadeIn(function() { loading = false; });
             }
         });
