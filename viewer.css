@@ -24,14 +24,19 @@ body {
     width: 80px;
     height: 80px;
 }
-#info {
-    background-color: #a2482e;
-    width: 600px;
-    height: 400px;
+#infoBox {
     margin: 0 auto;
-    position: relative;
+/*    position: relative;*/
+    text-align: center;
+}
+#infoBox > div {
+    background-color: #a2482e;
+    width: 550px;
+    height: 400px;
     padding: 1em;
+    text-align: left;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
+    display: inline-block;
 }

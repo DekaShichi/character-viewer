@@ -10,6 +10,7 @@ $(document).ready(function() {
     
     // Hide the info box at start.
     $("#info").hide();
+    $("#images").hide();
 });
 
 function init(resp) {
@@ -64,6 +65,7 @@ function render_grid() {
          * In this case, the character index is attached.
          */
         $("#grid div").eq(i).on("click", { index: i }, function(e) {
+            if(loading) return;
             // Reset all of the icon borders no matter what.
             $("#grid img").css("border","");
             // If this character is already selected.
@@ -76,7 +78,9 @@ function render_grid() {
                 // Empty data once done fading out only if it's not loading
                 // new data, otherwise will produce a bug that will wipe out
                 // the info that's being rendered elsewhere.
-                info.fadeOut(function() { if(!loading) { info.empty(); } });
+                $("#images").fadeOut(function() {
+                    info.fadeOut(function() { info.empty(); });
+                });
             }
             // Else it's not already selected.
             else
@@ -103,7 +107,9 @@ function render_grid() {
                 // rendering info.
                 loading = true;
                 // Animate fade in, then set loading to false once complete.
-                $("#info").fadeIn(function() { loading = false; });
+                $("#info").fadeIn(function() {
+                    $("#images").fadeIn(function() { loading = false;});
+                });
             }
         });
     }
