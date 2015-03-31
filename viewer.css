@@ -26,17 +26,48 @@ body {
 }
 #infoBox {
     margin: 0 auto;
-/*    position: relative;*/
     text-align: center;
 }
 #infoBox > div {
-    background-color: #a2482e;
-    width: 550px;
-    height: 400px;
     padding: 1em;
-    text-align: left;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
+    display: inline-block;    
+}
+#info {
+    width: 450px;
+    height: 400px;
+    text-align: left;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#images {
+    background-color: #4d4b46;
+    width: 300px;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#images div {
     display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+#images img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+}
+#full {
+    margin: auto;
+    height: 400px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+#full img {
+    height: 100%;
+    border-radius: 20px;
 }
