@@ -1,60 +1,13 @@
 [
 {
-    "name": "Gyle Stimme",
-    "age": 22,
-    "icon": "img/GyleFI.jpg",
-    "color": "#6B67B4",
+    "name": "",
+    "icon": "",
+    "color": "",
     "images": [
         {
-            "icon": "img/GyleFI.jpg",
-            "full": "img/Gyle 4.jpg"
-        },
-        {
-            "icon": "img/Gyle 3 FI.jpg",
-            "full": "img/Gyle 3.jpg"
-        }
-    ]
-},
-{
-    "name": "Rearite Aratameru",
-    "age": 224,
-    "icon": "img/Rearite 3 FI.jpg",
-    "color": "#B197A1",
-    "spells": {
-        "desc": "Testing spell desc."
-    },
-    "images": [
-        {
-            "icon": "img/Rearite 3 FI.jpg",
-            "full": "img/Rearite 3.jpg"
-        },
-        {
-            "icon": "img/ReariteFI.png",
-            "full": "img/Ash 2.png"
-        },
-        {
-            "icon": "img/Rearite 5 FI.png",
-            "full": "img/Rearite 5.png"
-        }
-    ]
-},
-{
-    "name": "Yuu Influen",
-    "age": 18,
-    "icon": "img/YuuFI.jpg",
-    "color": "#4F7B96",
-    "spells": {
-        "list": [
-        {
-            "name": "Test",
-            "value": "Test description"
-        }
-        ]
-    },
-    "images": [
-        {
-            "icon": "img/YuuFI.jpg",
-            "full": "img/Yuu.jpg"
+            "icon": "",
+            "full": "",
+            "mature": false
         }
     ]
 }
