@@ -67,6 +67,9 @@ function render_grid() {
          */
         $("#grid div").eq(i).on("click", { index: i }, function(e) {
             if(loading) return;
+            // Necessary as otherwise fast toggles will wipe out currently
+            // rendering info.
+            loading = true;
             // Reset all of the icon borders no matter what.
             $("#grid img").css("border","");
             // Empty the full image no matter what.
@@ -82,7 +85,7 @@ function render_grid() {
                 // new data, otherwise will produce a bug that will wipe out
                 // the info that's being rendered elsewhere.
                 $("#images").fadeOut(function() {
-                    info.fadeOut(function() { info.empty(); });
+                    info.fadeOut(function() { info.empty(); loading = false; });
                 });
             }
             // Else it's not already selected.
@@ -107,9 +110,6 @@ function render_grid() {
                     style.border = "thick solid turquoise";
                 }
                 
-                // Necessary as otherwise fast toggles will wipe out currently
-                // rendering info.
-                loading = true;
                 // Animate fade in, then set loading to false once complete.
                 $("#info").fadeIn(function () {
                     $("#images").fadeIn(function() { loading = false; });
