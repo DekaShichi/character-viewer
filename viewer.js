@@ -70,10 +70,14 @@ function render_grid() {
             // Necessary as otherwise fast toggles will wipe out currently
             // rendering info.
             loading = true;
+            
             // Reset all of the icon borders no matter what.
             $("#grid img").css("border","");
+            // Empty the icons no matter what.
+            $("#images").empty();
             // Empty the full image no matter what.
             $("#full").empty();
+            
             // If this character is already selected.
             if(currentIndex == e.data.index) {
                 // Set the index to an arbitrary 'invalid' number so that when
@@ -93,6 +97,8 @@ function render_grid() {
             {
                 // Set the currently selected character index.
                 currentIndex = e.data.index;
+                // Empty the children first.
+                $("#info").empty();
                 // Render the info box.
                 render(chars[e.data.index]);
                 render_images(e.data.index);
@@ -122,8 +128,6 @@ function render_grid() {
 // Renders the face icon grid that's clickable. A click will either produce a
 // a full image, or "destroy" it if it's already selected.
 function render_images(index) {
-    // Empty the children first (in case of using load/init again).
-    $("#images").empty();
     var char = chars[index];
     if(!char.hasOwnProperty('images') ||
             !char.images.hasOwnProperty('length')) return;
@@ -159,18 +163,17 @@ function render_images(index) {
          */
         $("#images div").eq(i).on("click", { index: i }, function(e) {
             if(loading) return;
+            
             // Reset all of the icon borders no matter what.
             $("#images img").css("border","");
+            // Empty #full no matter what.
+            $("#full").empty();
             
             // If this character is already selected.
             if(currentFullIndex == e.data.index) {
                 // Set the index to an arbitrary 'invalid' number so that when
                 // selected again it's never initially true.
-                currentFullIndex = -1;
-                // Empty data once done fading out only if it's not loading
-                // new data, otherwise will produce a bug that will wipe out
-                // the info that's being rendered elsewhere.
-                $("#full").empty();
+                currentFullIndex = -1;                
             }
             // Else it's not already selected.
             else
@@ -200,8 +203,6 @@ function render_images(index) {
 }
 
 function render_full(imageUrl) {
-    $("#full").empty();
-    
     // Creates containers for each field.
     var img = document.createElement("IMG");
     img.setAttribute("id","fullImg");

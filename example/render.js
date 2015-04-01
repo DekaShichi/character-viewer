@@ -1,8 +1,5 @@
 // Renders the info box of the passed in character.
 function render(char) {
-    // Empty the children first.
-    $("#info").empty();
-    
     addProperty("Name",char.name);
     addProperty("Age",char.age);
     // If 'spells' exists add property.
