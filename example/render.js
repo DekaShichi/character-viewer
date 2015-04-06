@@ -13,4 +13,7 @@ function render(char) {
         var prop = addProperty(desc,"Spells");
         prop.appendChild(addUnorderedList(char.spells.list));
     }
+    if('appearance' in char) {
+    	addBlock(char.appearance,"Appearance");
+    }
 }

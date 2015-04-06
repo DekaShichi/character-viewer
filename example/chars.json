@@ -23,6 +23,7 @@
     "spells": {
         "desc": "Testing spell desc."
     },
+    "appearance": "Test block\n\nTest block.",
     "images": [
         {
             "icon": "img/Rearite 3 FI.jpg",
