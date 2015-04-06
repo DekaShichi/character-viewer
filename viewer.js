@@ -224,11 +224,12 @@ function addProperty(text, label, div, body) {
     // Create the text node to the field's info.
     // Append the text node to the container.
     if(label) {
-        div.appendChild(document.createTextNode(label + ": " + text));
+        var span = document.createElement("SPAN");
+        span.className = "label";
+        span.appendChild(document.createTextNode(label + ": "));
+        div.appendChild(span);
     }
-    else {
-        div.appendChild(document.createTextNode(text));
-    }
+    div.appendChild(document.createTextNode(text));
     // Append the container to the info box.
     if(!body) {
         document.getElementById("info").appendChild(div);
