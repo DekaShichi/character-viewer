@@ -241,6 +241,36 @@ function addProperty(text, label, div, body) {
     return div;
 }
 
+/* Similar to addProperty, but instead of a one-line string, it works with
+ * multiple blocks/paragraphs. The block must containe \n's separating line breaks.
+ */
+function addBlock(block, label, div, body) {
+    if(!div) div = document.createElement("DIV");
+    if(label) {
+        var span = document.createElement("SPAN");
+        span.className = "label";
+        span.style.display = "inline";
+        span.appendChild(document.createTextNode(label + ": "));
+        div.appendChild(span);
+    }
+    // Split into different paragraphs based on \n's in the JSON string.
+    var paras = block.split("\n");
+    for(var i = 0; i < paras.length; i++) {
+        if(paras[i]) {
+            div.appendChild(document.createTextNode(paras[i]));
+        }
+        div.appendChild(document.createElement("BR"));
+    }
+    // Add an extra break to add a blank line to avoid clutter.
+    div.appendChild(document.createElement("BR"));
+    if(!body) {
+        document.getElementById("info").appendChild(div);
+    }
+    else {
+        body.appendChild(div);
+    }
+}
+
 /* Use to create an unordered list.
  * Pass in a list with each item having a 'name' and 'value'.
  * Any combination of the two are optional (no name, value; visa versa).
