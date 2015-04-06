@@ -274,14 +274,7 @@ function createList(listElem, list) {
     if(list) {
         for(var i = 0; i < list.length; i++) {
             var li = document.createElement("LI");
-            // Create the text node to the field's info.
-            var name, text = "";
-            if('name' in list[i]) name = list[i].name;
-            if('value' in list[i]) text = list[i].value;
-            var liText = document.createTextNode(name + ": " + text);
-            // Append the text node to the container.
-            li.appendChild(liText);
-            listElem.appendChild(li);
+            addProperty(list[i].value,list[i].name,li,listElem);
         }
     }
 }
