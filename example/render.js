@@ -4,13 +4,13 @@
  * a list to a returned Property (a div), or #info itself.
  */
 function render(char) {
-    addProperty("Name",char.name);
-    addProperty("Age",char.age);
+    addProperty(char.name,"Name");
+    addProperty(char.age,"Age");
     // If 'spells' exists add property.
     if('spells' in char) {
         var desc = "";
         if(char.spells.desc) desc = char.spells.desc;
-        var prop = addProperty("Spells", desc);
+        var prop = addProperty(desc,"Spells");
         prop.appendChild(addUnorderedList(char.spells.list));
     }
 }
