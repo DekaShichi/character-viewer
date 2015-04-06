@@ -216,16 +216,26 @@ function render_full(imageUrl) {
  * Example:
  * Spells: = addProperty("Spells",""); vs.
  * Spells: Some text. = addProperty("Spells","Some text.");
+ * Some text. = addProperty("Some text.")l
  */ 
-function addProperty(name, string) {
+function addProperty(text, label, div, body) {
     // Creates containers for each field.
-    var div = document.createElement("DIV");
+    if(!div) div = document.createElement("DIV");
     // Create the text node to the field's info.
-    var divText = document.createTextNode(name + ": " + string);
     // Append the text node to the container.
-    div.appendChild(divText);
+    if(label) {
+        div.appendChild(document.createTextNode(label + ": " + text));
+    }
+    else {
+        div.appendChild(document.createTextNode(text));
+    }
     // Append the container to the info box.
-    document.getElementById("info").appendChild(div);
+    if(!body) {
+        document.getElementById("info").appendChild(div);
+    }
+    else {
+        body.appendChild(div);
+    }
     
     return div;
 }
