@@ -1,5 +1,16 @@
 // Copyright (c) 2015 DekaShichi
 
+// Copyright http://stackoverflow.com/a/25359264
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+}
+
 var chars;
 // Used to keep track of the current selected character.
 var currentIndex = -1;
@@ -8,16 +19,26 @@ var currentFullIndex = -1;
 var loading = false;
 $(document).ready(function() {
     load();
-    
-    // Hide the info box at start.
-    $("#info").hide();
-    $("#images").hide();
 });
 
 function init(resp) {
     chars = JSON.parse(resp);    
     if(chars) {
         render_grid();
+        var id = $.urlParam('id');
+        if(id && id >= 0 && id < chars.length) {
+            $("#grid div").eq(id).click();
+        }
+        else {
+            // Hide the info box at start.
+            $("#info").hide();
+            $("#images").hide();
+        }
+    }
+    else {
+        // Hide the info box at start.
+        $("#info").hide();
+        $("#images").hide();
     }
 }
 
@@ -91,6 +112,8 @@ function render_grid() {
                 $("#images").fadeOut(function() {
                     info.fadeOut(function() { info.empty(); loading = false; });
                 });
+
+                window.history.replaceState({},"","./");
             }
             // Else it's not already selected.
             else
@@ -120,6 +143,8 @@ function render_grid() {
                 $("#info").fadeIn(function () {
                     $("#images").fadeIn(function() { loading = false; });
                 });
+
+                window.history.pushState({},"",'?' + $.param({id: e.data.index}));
             }
         });
     }
