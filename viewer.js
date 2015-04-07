@@ -144,7 +144,7 @@ function render_grid() {
                     $("#images").fadeIn(function() { loading = false; });
                 });
 
-                window.history.pushState({},"",'?' + $.param({id: e.data.index}));
+                window.history.replaceState({},"",'?' + $.param({id: e.data.index}));
             }
         });
     }
