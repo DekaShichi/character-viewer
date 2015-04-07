@@ -266,6 +266,30 @@ function addProperty(text, label, div, body) {
     return div;
 }
 
+/* Use to create an unordered list.
+ * Pass in a list with each item having a 'name' and 'value'.
+ * Any combination of the two are optional (no name, value; visa versa).
+ * Example:
+ * someProp.appendChild(addUnorderedList(list_of_items));
+ */ 
+function addLink(url, text, div, body) {
+    // Creates containers for each field.
+    if(!div) div = document.createElement("DIV");
+    var link = document.createElement("A");
+    link.href = url;
+    link.appendChild(document.createTextNode(text));
+    div.appendChild(link);
+    // Append the container to the info box.
+    if(!body) {
+        document.getElementById("info").appendChild(div);
+    }
+    else {
+        body.appendChild(div);
+    }
+    
+    return div;
+}
+
 /* Similar to addProperty, but instead of a one-line string, it works with
  * multiple blocks/paragraphs. The block must containe \n's separating line breaks.
  */
