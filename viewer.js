@@ -99,6 +99,7 @@ function render_grid() {
             // Empty the full image no matter what.
             $("#full").empty();
             
+            currentFullIndex = -1;
             // If this character is already selected.
             if(currentIndex == e.data.index) {
                 // Set the index to an arbitrary 'invalid' number so that when
@@ -198,7 +199,7 @@ function render_images(index) {
             if(currentFullIndex == e.data.index) {
                 // Set the index to an arbitrary 'invalid' number so that when
                 // selected again it's never initially true.
-                currentFullIndex = -1;                
+                currentFullIndex = -1;
             }
             // Else it's not already selected.
             else
