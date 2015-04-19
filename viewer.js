@@ -27,7 +27,7 @@ function init(resp) {
         render_grid();
         var id = $.urlParam('id');
         if(id && id >= 0 && id < chars.length) {
-            var image = $.urlParam('img');
+            var image = $.urlParam('image');
             $("#grid div").eq(id).click();
             while(loading) continue;
             if(image && image >= 0 && image < chars[id].images.length) {
@@ -35,7 +35,7 @@ function init(resp) {
             }
             else {
                 // Re-update link after the click even if image is false.
-                window.history.replaceState({},"",'?' + $.param({id: id, img: image}));
+                window.history.replaceState({},"",'?' + $.param({id: id, image: image}));
             }
         }
         else {
@@ -233,7 +233,7 @@ function render_images(index) {
                         icon.css('border',"thick solid turquoise");
                     }
                 }
-                window.history.replaceState({},"",'?' + $.param({id: index, img: e.data.index}));
+                window.history.replaceState({},"",'?' + $.param({id: index, image: e.data.index}));
             }
         });
     }
