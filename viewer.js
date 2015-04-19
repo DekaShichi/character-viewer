@@ -27,7 +27,16 @@ function init(resp) {
         render_grid();
         var id = $.urlParam('id');
         if(id && id >= 0 && id < chars.length) {
+            var image = $.urlParam('img');
             $("#grid div").eq(id).click();
+            while(loading) continue;
+            if(image && image >= 0 && image < chars[id].images.length) {
+                $("#images div").eq(image).click();
+            }
+            else {
+                // Re-update link after the click even if image is false.
+                window.history.replaceState({},"",'?' + $.param({id: id, img: image}));
+            }
         }
         else {
             // Hide the info box at start.
@@ -200,6 +209,7 @@ function render_images(index) {
                 // Set the index to an arbitrary 'invalid' number so that when
                 // selected again it's never initially true.
                 currentFullIndex = -1;
+                window.history.replaceState({},"",'?' + $.param({id: index}));
             }
             // Else it's not already selected.
             else
@@ -223,6 +233,7 @@ function render_images(index) {
                         icon.css('border',"thick solid turquoise");
                     }
                 }
+                window.history.replaceState({},"",'?' + $.param({id: index, img: e.data.index}));
             }
         });
     }
